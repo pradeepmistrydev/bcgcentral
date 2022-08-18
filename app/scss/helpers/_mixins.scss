@@ -1,0 +1,96 @@
+$breakpoints: ( 'small-mobile': (max-width:355px), 'mobile-max':(max-width:396px), 'mid-mobile':(max-width:490px), 'mobile': (max-width: 575px), 'mobile-min':(min-width:576px), 'ipad': (max-width: 767px), 'ipad-land': (max-width: 991px), 'desktop-min':(min-width:1048px), 'desktop': (max-width: 1366px), 'desktop-large':(min-width:1500px), 'tablets':(min-width:992px) and (max-width:1300px), 'large': (min-width:1660px), );
+@mixin breakpoint($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$name}`.";
+    }
+}
+
+// Opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+/* placeholder */
+
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+// Transition
+@mixin transition($what: all, $time: 0.5s, $how: ease-in-out) {
+    transition: $what $time $how;
+}
+
+// rgba Border
+@mixin border-rgba ($color, $opacity) {
+    border: 1px solid rgba(red($color), green($color), blue($color), $opacity);
+}
+
+// Background Color rgba
+@mixin background-color-rgba($color, $opacity) {
+    background-color: rgba($color, $opacity);
+}
+
+// Color rgba
+@mixin color-rgba($color, $opacity) {
+    color: rgba($color, $opacity);
+}
+
+// Horizontal and Center Align using Transform
+@mixin horizontal-center-transform {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin vertical-center-transform {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-vertical-center-transform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Center Block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin tablets {
+    @media(min-width: 992px) and (max-width: 1199px) {}
+}

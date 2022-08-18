@@ -1,0 +1,156 @@
+.userlogin {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        background-image: url(../images/Login_side_img.png);
+        width: 50%;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include breakpoint('ipad-land') {
+            position: unset;
+        }
+    }
+}
+
+.login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint('desktop-large') {
+        align-items: unset;
+    }
+    &__logo {
+        display: flex;
+        margin-left: -70px;
+        @include breakpoint('desktop-large') {
+            margin-left: unset;
+        }
+        @include breakpoint('ipad-land') {
+            justify-content: center;
+            align-items: baseline;
+            margin-left: unset;
+        }
+        &__CBI {
+            border-right: 1px solid $light-grey;
+            padding-right: 20px;
+            @include breakpoint('mobile') {
+                width: 145px;
+                height: fit-content;
+            }
+        }
+        &__rise {
+            width: 151px;
+            margin-left: 2rem;
+            @include breakpoint('mobile') {
+                width: 89px;
+            }
+        }
+    }
+    &__form {
+        @include breakpoint('ipad-land') {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        padding-top: 6.6rem;
+        h1 {
+            color: $black;
+            font-size: 2.8rem;
+            text-align: center;
+            width: 416px;
+            @include breakpoint('ipad-land') {
+                width: unset;
+            }
+        }
+        &__user {
+            padding-top: 3.3rem;
+            @include breakpoint('ipad-land') {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                width: 100%;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $black;
+                padding-left: 0.5rem;
+            }
+            input[type="text"] {
+                font-size: 1.4rem;
+                padding-left: 2.4rem;
+                margin-top: 0.8rem;
+                width: 416px;
+                height: 43px;
+                border-radius: 20px;
+                border: 1px solid $tertiary-color;
+                @include breakpoint('mobile') {
+                    width: 320px;
+                }
+            }
+             ::placeholder {
+                line-height: 1;
+                font-size: 1.4rem;
+            }
+        }
+        &__password {
+            padding-top: 3.3rem;
+            @include breakpoint('ipad-land') {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                width: 100%;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $black;
+                padding-left: 0.5rem;
+            }
+            input[type="text"] {
+                font-size: 1.4rem;
+                padding-left: 2.4rem;
+                margin-top: 0.8rem;
+                width: 416px;
+                height: 43px;
+                border-radius: 20px;
+                border: 1px solid $tertiary-color;
+                @include breakpoint('mobile') {
+                    width: 320px;
+                }
+            }
+             ::placeholder {
+                line-height: 1;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.central {
+    z-index: 1;
+    height: 433px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint('ipad-land') {
+        display: none;
+    }
+    h3 {
+        color: $black;
+        font-size: 2.8rem;
+    }
+    p {
+        color: $black;
+        font-size: 1.4rem;
+    }
+    img {
+        width: 120%;
+        height: 100vh;
+    }
+}

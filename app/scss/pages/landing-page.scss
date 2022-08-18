@@ -1,0 +1,508 @@
+//sidenav
+.sidenav {
+    background-color: $primary-color;
+    width: 243px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    @include breakpoint('ipad-land') {
+        display: none;
+        z-index: 999;
+    }
+    &-active {
+        width: 243px;
+        /* left: 243px; */
+        display: block;
+    }
+    &__logo {
+        @include center-block;
+        padding-top: 2rem;
+    }
+    &__menu {
+        display: flex;
+        max-width: 160px;
+        margin: 0 auto;
+        flex-direction: column;
+        padding-top: 2rem;
+        li {
+            padding-top: 4.4rem;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                opacity: 0.8;
+            }
+            img {
+                width: 22.74px;
+            }
+            p {
+                color: $white;
+                margin-bottom: 0;
+                padding-left: 2.1rem;
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+//sidenav
+//header
+.header {
+    width: calc(100% - 243px);
+    display: flex;
+    align-items: center;
+    box-shadow: 0px -5px 16px $grey-3;
+    margin-left: auto;
+    background: $white;
+    justify-content: space-between;
+    height: 92px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    @include breakpoint('ipad-land') {
+        width: 100%;
+    }
+    &__toggle {
+        display: none;
+        margin-left: 1.5rem;
+        @include breakpoint('ipad-land') {
+            display: block;
+            position: relative;
+            z-index: 1111;
+        }
+        div {
+            background-color: $primary-color;
+            width: 20px;
+            height: 2px;
+            margin: 0.4rem;
+            &:nth-child(2) {
+                width: 18px;
+            }
+            &:nth-child(3) {
+                width: 15px;
+            }
+        }
+    }
+    .header__logo {
+        display: flex;
+        &__rise {
+            width: 108px;
+            margin-left: 1.6rem;
+            @include breakpoint('mobile') {
+                width: 90px;
+            }
+            @include breakpoint('mobile-max') {
+                width: 80px;
+                margin-left: 0.5rem;
+            }
+        }
+        &__mobile {
+            width: 163px;
+            display: none;
+            @include breakpoint('ipad-land') {
+                display: flex;
+            }
+            @include breakpoint('mobile') {
+                width: 107px;
+                padding-top: 0.8rem;
+            }
+            @include breakpoint('mobile-max') {
+                width: 91px;
+            }
+        }
+    }
+    .header__search {
+        position: relative;
+        @include breakpoint('tablets') {
+            display: none;
+        }
+        &__logo {
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+        }
+        input[type='search'] {
+            position: relative;
+            width: 416px;
+            border-radius: 20px;
+            border: 1px solid $light-blue;
+            padding: 1.3rem 0 1.3rem 5.3rem;
+            font-size: 1.2rem;
+            background-color: $dark-grey;
+            color: $black;
+             ::placeholder {
+                color: $tertiary-color;
+            }
+        }
+    }
+    &__btn {
+        padding: 1.1rem 4rem;
+        background-color: $primary-color;
+        color: $white;
+        border-radius: 30px;
+        margin-left: 1.6rem;
+        font-size: 1.6rem;
+        &:hover {
+            color: $white;
+        }
+    }
+    .header__content {
+        display: flex;
+        &__notification {
+            position: relative;
+            width: 57px;
+            height: 57px;
+            background-color: $dark-grey;
+            border-radius: 50%;
+            margin-right: 1.6rem;
+            cursor: pointer;
+            @include breakpoint('ipad-land') {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+            }
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &__profile {
+            margin-right: 4.3rem;
+            cursor: pointer;
+            @include breakpoint('ipad-land') {
+                margin-right: 1.6rem;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+//header
+//main
+.main {
+    width: calc(100% - 243px);
+    margin-left: auto;
+    background-color: $grey-2;
+    padding-left: 1.6rem;
+    padding-right: 4.3rem;
+    &__active {
+        @include breakpoint('ipad-land') {
+            opacity: 0.4;
+        }
+    }
+    @include breakpoint('ipad-land') {
+        width: 100%;
+        padding-right: 1.6rem;
+    }
+    @include breakpoint('ipad') {
+        padding-right: 1.6rem;
+    }
+    .badge {
+        margin-top: 1.6rem;
+        border: 1px solid $light-red;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: $white;
+        border-radius: 10px;
+        @include breakpoint('small-mobile') {
+            display: none;
+        }
+        &__dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $secondary-color;
+            margin-left: 16px;
+        }
+        &__content {
+            font-size: 1.4rem;
+            color: $black;
+            margin-bottom: 0;
+            padding: 1.5rem 0 1.5rem 1.5rem;
+            @include breakpoint('ipad') {
+                font-size: 1.1rem;
+                line-height: 13px;
+                text-align: left;
+            }
+            @include breakpoint('mobile') {
+                font-size: 1.3rem;
+            }
+            @include breakpoint('mid-mobile') {
+                font-size: 0.9rem;
+            }
+            br {
+                @include breakpoint('mobile-min') {
+                    display: none;
+                }
+            }
+        }
+    }
+    .bannermain {
+        margin-top: 1.7rem;
+        display: flex;
+        @include breakpoint('ipad') {
+            flex-wrap: wrap;
+        }
+    }
+    .banner {
+        position: relative;
+        width: 740px;
+        display: flex;
+        img {
+            @include breakpoint('tablets') {
+                width: 450px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            @include breakpoint('ipad') {
+                width: 100%;
+            }
+        }
+        h2 {
+            position: absolute;
+            color: $white;
+            top: 90px;
+            right: 112px;
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 41px;
+            @include breakpoint('tablets') {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @include breakpoint('mobile') {
+                line-height: 26px;
+                font-size: 2rem;
+            }
+            &::before {
+                content: "";
+                background: $white;
+                width: 92px;
+                height: 4px;
+                position: absolute;
+                top: -10px;
+                border-radius: 20px;
+            }
+        }
+    }
+    .todo {
+        width: 100%;
+        background: $white;
+        border-radius: 10px;
+        padding: 1.8rem 1.6rem;
+        margin-left: 1.6rem;
+        box-shadow: 0px 1px 12px $grey-4;
+        @include breakpoint('ipad') {
+            margin-top: 1.4rem;
+            margin-left: unset;
+        }
+        h3 {
+            color: $black;
+            font-size: 1.6rem;
+        }
+        &__list {
+            padding-top: 1.6rem;
+            @include breakpoint('desktop-large') {
+                margin-left: 2rem;
+            }
+            li {
+                position: relative;
+                font-size: 1.4rem;
+                line-height: 1.9rem;
+                list-style: none;
+                width: 95%;
+                padding-bottom: 1.6rem;
+                color: $black;
+                margin-left: 0.6rem;
+                padding-left: 2rem;
+                @include breakpoint('desktop-large') {
+                    width: 90%;
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    left: -6px;
+                    top: 6px;
+                    background: $secondary-color;
+                    border-radius: 50%;
+                }
+            }
+        }
+        &__btn {
+            font-size: 1.4rem;
+            color: $white;
+            background: $secondary-color;
+            padding: 0.6rem 2rem;
+            border-radius: 20px;
+            display: flex;
+            width: fit-content;
+            margin-left: auto;
+        }
+    }
+    .statistics {
+        display: flex;
+        margin-bottom: 1.6rem;
+        @include breakpoint('ipad') {
+            flex-wrap: wrap;
+        }
+        .role {
+            background: $white;
+            width: 500px;
+            padding: 1.6rem;
+            margin-top: 1.6rem;
+            box-shadow: 0px 1px 12px $grey-4;
+            @include breakpoint('ipad-land') {
+                width: 100%;
+            }
+            .officer {
+                padding-bottom: 1.7rem;
+                h2 {
+                    font-size: 1.6rem;
+                    color: $black;
+                    padding-bottom: 1.6rem;
+                }
+                &__one {
+                    display: flex;
+                    padding-bottom: 1.7rem;
+                    span {
+                        font-size: 1.2rem;
+                        background: $primary-color;
+                        width: 21px;
+                        height: 21px;
+                        border-radius: 50%;
+                        text-align: center;
+                        color: $white;
+                        line-height: 1.9;
+                    }
+                    p {
+                        font-size: 1.4rem;
+                        color: $black;
+                        padding-left: 1.7rem;
+                        margin-bottom: 0;
+                    }
+                }
+                &__two {
+                    display: flex;
+                    p {
+                        font-size: 1.4rem;
+                        color: $black;
+                        padding-left: 1.7rem;
+                        margin-bottom: 0;
+                    }
+                    span {
+                        font-size: 1.2rem;
+                        background: $secondary-color;
+                        width: 21px;
+                        height: 21px;
+                        border-radius: 50%;
+                        text-align: center;
+                        color: $white;
+                        line-height: 1.9;
+                    }
+                }
+            }
+            .kras {
+                border-top: 1px solid $tertiary-color;
+                padding-top: 1.6rem;
+                h2 {
+                    color: $black;
+                    font-size: 1.6rem;
+                }
+                &__list {
+                    padding-top: 0.5rem;
+                    li {
+                        color: $black;
+                        font-size: 1.4rem;
+                        position: relative;
+                        padding-left: 1.3rem;
+                        margin-left: 0.6rem;
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            left: -6px;
+                            top: 6px;
+                            background: $secondary-color;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+        .performance {
+            width: 100%;
+            background: $white;
+            padding: 1.6rem;
+            margin-left: 1.6rem;
+            margin-top: 1.6rem;
+            box-shadow: 0px 1px 12px $grey-4;
+            @include breakpoint('ipad') {
+                margin-left: unset;
+            }
+            h3 {
+                color: $black;
+                font-size: 1.6rem;
+            }
+            &__cardbody {
+                justify-content: center;
+                align-items: center;
+                padding-top: 4.4rem;
+                @include breakpoint('tablets') {
+                    flex-wrap: wrap;
+                }
+                &__card {
+                    border-right: 1px solid $grey-5;
+                    padding: 0 4rem;
+                    @include breakpoint('desktop') {
+                        padding: 0 1.7rem;
+                    }
+                    @include breakpoint('tablets') {
+                        border: 0;
+                    }
+                    &:last-child {
+                        border-right: 0;
+                    }
+                    h3 {
+                        font-size: 3.9rem;
+                        color: $secondary-color;
+                        text-align: center;
+                    }
+                    p {
+                        padding-top: 2rem;
+                        color: $black;
+                        font-size: 1.4rem;
+                        text-align: center;
+                    }
+                }
+            }
+            &__btn {
+                font-size: 1.4rem;
+                color: $white;
+                background: $secondary-color;
+                padding: 0.6rem 2rem;
+                border-radius: 20px;
+                display: flex;
+                width: fit-content;
+                margin-left: auto;
+                margin-top: 4.7rem;
+            }
+        }
+    }
+}
+
+//main

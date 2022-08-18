@@ -1,0 +1,27 @@
+.btn {
+    border-radius: 20px;
+    background-color: $secondary-color;
+    color: $white;
+    width: 416px;
+    padding: 1.1rem 0;
+    text-align: center;
+    margin-top: 4.4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border: 0;
+    &:hover {
+        background-color: $secondary-color;
+        color: $white;
+    }
+    &:active {
+        background-color: $secondary-color;
+        color: $white;
+    }
+    &:focus {
+        background-color: $secondary-color;
+        color: $white;
+    }
+    @include breakpoint('mobile') {
+        width: 320px;
+    }
+}
